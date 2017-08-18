@@ -4,7 +4,16 @@ export PATH="$HOME"/.pyenv/bin:"$PATH"
 
 #Install dependencies
 sudo yum install -y openssl-devel sqlite-devel bzip2-devel xz-libs tk-devel gdbm-devel ncurses-devel readline-devel xz git patch
-curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer -o /tmp/pyenv-installer
+
+    #Grant curl permissions
+    #sudo chown root /  && chown root /etc/ && chown root /etc/ssl/ && chown root /etc/ssl/certs/ && chown root /etc/ssl/certs/ca-certificates.crt
+    #sudo chmod 755 /
+    #sudo chmod 755 /etc/
+    #sudo chmod 755 /etc/ssl/
+    #sudo chmod 755 /etc/ssl/certs
+    #sudo chmod 644 /etc/ssl/certs/ca-certificates.crt
+
+    curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer -o /tmp/pyenv-installer
 
 #Install pyenv
 bash /tmp/pyenv-installer

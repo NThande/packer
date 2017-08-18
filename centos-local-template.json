@@ -8,7 +8,8 @@
 		"Centos7_checksum_type": "",
 		"PY_VERSIONS:": ""
 	},
-	"builders": [{
+	"builders": [
+      {
 		"name": "Centos6_min",
 		"type": "virtualbox-iso",
 		"virtualbox_version_file": ".vbox_version",
@@ -37,7 +38,8 @@
 		"ssh_wait_timeout": "10000s",
 
 		"shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now"
-	}, {
+	},
+      {
 		"name": "Centos7_min",
 		"type": "virtualbox-iso",
 		"virtualbox_version_file": ".vbox_version",
@@ -66,7 +68,8 @@
 		"ssh_wait_timeout": "10000s",
 
 		"shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now"
-	}, {
+	},
+      {
 		"name": "Centos6_py",
 		"type": "virtualbox-iso",
 		"virtualbox_version_file": ".vbox_version",
@@ -95,7 +98,8 @@
 		"ssh_wait_timeout": "10000s",
 
 		"shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now"
-	}, {
+	},
+      {
 		"name": "Centos7_py",
 		"type": "virtualbox-iso",
 		"virtualbox_version_file": ".vbox_version",
@@ -129,7 +133,8 @@
 		"only": ["Centos6_py", "Centos7_py"],
 		"type": "shell",
 		"execute_command": "chmod +x {{ .Path }}; sudo -iu vagrant {{ .Vars }} {{ .Path }}",
-		"script": "scripts/pyenv-install.sh",
+		"scripts": ["scripts/pyenv-install.sh", "scripts/ide-setup.sh"
+						],
 		"environment_vars": [
 			"PY_VERSIONS={{user `PY_VERSIONS`}}"
 		]
